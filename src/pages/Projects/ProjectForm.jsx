@@ -98,7 +98,7 @@ const ProjectForm = ({ onSubmit, loading }) => {
           onChange={handleChange}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-600 dark:border-gray-500"
         >
-          <option value="planned">Planned</option>
+          <option value="not started">not started</option>
           <option value="in progress">In Progress</option>
           <option value="completed">Completed</option>
           <option value="on hold">On Hold</option>

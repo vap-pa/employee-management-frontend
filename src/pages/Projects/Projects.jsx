@@ -31,7 +31,7 @@ const Projects = () => {
   const handleDelete = async (id) => {
     try {
       await projectService.deleteProject(id, employee.token);
-      setProjects(projects.filter(project => project._id !== id));
+      setProjects(projects.filter(project => project.id !== id));
     } catch (err) {
       setError(err.message || 'Failed to delete project');
     }
@@ -51,7 +51,7 @@ const Projects = () => {
       <ProjectList 
         projects={projects} 
         onDelete={handleDelete}
-        currentUserId={employee._id}
+        currentUserId={employee.id}
       />
     </div>
   );

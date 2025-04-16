@@ -13,7 +13,7 @@ const MyFunTasks = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const data = await funTaskService.getEmployeeFunTasks(employee._id, employee.token);
+        const data = await funTaskService.getEmployeeFunTasks(employee.id, employee.token);
         setTasks(data);
         setLoading(false);
       } catch (err) {
@@ -23,7 +23,7 @@ const MyFunTasks = () => {
     };
 
     fetchTasks();
-  }, [employee._id, employee.token]);
+  }, [employee.id, employee.token]);
 
   if (loading) return <div>Loading...</div>;
 

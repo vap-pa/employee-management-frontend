@@ -22,15 +22,15 @@ const EmployeeCard = ({ employee, onDelete, currentUserId }) => {
         <div className="flex flex-col space-y-2">
           <Button
             size="small"
-            onClick={() => window.location.href = `/employees/${employee._id}`}
+            onClick={() => window.location.href = `/employees/${employee.id}`}
           >
             View
           </Button>
-          {employee._id !== currentUserId && (
+          {employee.id !== currentUserId && (
             <Button
               size="small"
               variant="danger"
-              onClick={() => onDelete(employee._id)}
+              onClick={() => onDelete(employee.id)}
             >
               Delete
             </Button>

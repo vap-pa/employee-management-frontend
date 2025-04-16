@@ -57,7 +57,7 @@ const EmployeeForm = ({ initialData = {}, onSubmit, loading }) => {
         />
       </div>
 
-      {!initialData._id && (
+      {!initialData.id && (
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700">
             Password

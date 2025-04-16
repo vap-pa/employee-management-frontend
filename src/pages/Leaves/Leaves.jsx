@@ -17,7 +17,14 @@ const Leaves = () => {
     const fetchLeaves = async () => {
       try {
         const data = await leaveService.getLeaves(employee.token);
-        setLeaves(data);
+
+        // Ensure the fetched data is an array
+        if (Array.isArray(data)) {
+          setLeaves(data);
+        } else {
+          throw new Error('Invalid data format');
+        }
+
         setLoading(false);
       } catch (err) {
         setError(err.message || 'Failed to fetch leaves');
@@ -31,8 +38,8 @@ const Leaves = () => {
   const handleStatusUpdate = async (leaveId, status) => {
     try {
       await leaveService.updateLeaveStatus(leaveId, { status }, employee.token);
-      setLeaves(leaves.map(leave => 
-        leave._id === leaveId ? { ...leave, status } : leave
+      setLeaves(leaves.map((leave) =>
+        leave.id === leaveId ? { ...leave, status } : leave
       ));
     } catch (err) {
       setError(err.message || 'Failed to update leave status');
@@ -51,7 +58,7 @@ const Leaves = () => {
       {error && <Alert type="error" message={error} onClose={() => setError(null)} />}
       
       <LeaveList 
-        leaves={leaves} 
+        leaves={leaves} // This should now always be an array
         onStatusUpdate={handleStatusUpdate}
         isAdmin={employee.role === 'admin'}
       />

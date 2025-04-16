@@ -13,7 +13,7 @@ const MyLeaves = () => {
   useEffect(() => {
     const fetchLeaves = async () => {
       try {
-        const data = await leaveService.getEmployeeLeaves(employee._id, employee.token);
+        const data = await leaveService.getEmployeeLeaves(employee.id, employee.token);
         setLeaves(data);
         setLoading(false);
       } catch (err) {
@@ -23,7 +23,7 @@ const MyLeaves = () => {
     };
 
     fetchLeaves();
-  }, [employee._id, employee.token]);
+  }, [employee.id, employee.token]);
 
   if (loading) return <div>Loading...</div>;
 

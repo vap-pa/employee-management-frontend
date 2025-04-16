@@ -36,7 +36,7 @@ const Employees = () => {
   const handleDelete = async (id) => {
     try {
       await employeeService.deleteEmployee(id, employee.token);
-      setEmployees(employees.filter(emp => emp._id !== id));
+      setEmployees(employees.filter(emp => emp.id !== id));
     } catch (err) {
       setError(err.message || 'Failed to delete employee');
     }
@@ -56,7 +56,7 @@ const Employees = () => {
       <EmployeeList
         employees={employees} 
         onDelete={handleDelete} 
-        currentUserId={employee._id}
+        currentUserId={employee.id}
       />
     </div>
   );

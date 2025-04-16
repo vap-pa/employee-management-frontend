@@ -35,14 +35,14 @@ const LeaveCard = ({ leave, onStatusUpdate, isAdmin }) => {
             <Button
               size="small"
               variant="success"
-              onClick={() => onStatusUpdate(leave._id, 'approved')}
+              onClick={() => onStatusUpdate(leave.id, 'approved')}
             >
               Approve
             </Button>
             <Button
               size="small"
               variant="danger"
-              onClick={() => onStatusUpdate(leave._id, 'rejected')}
+              onClick={() => onStatusUpdate(leave.id, 'rejected')}
             >
               Reject
             </Button>

@@ -23,7 +23,7 @@ const FunTaskCard = ({ task, onDelete, currentUserId }) => {
         </div>
         <div className="flex space-x-2">
           {(isAssignedToMe || isCreator) && (
-            <Button size="small" onClick={() => window.location.href = `/fun-tasks/${task._id}/edit`}>
+            <Button size="small" onClick={() => window.location.href = `/fun-tasks/${task.id}/edit`}>
               Edit
             </Button>
           )}
@@ -31,7 +31,7 @@ const FunTaskCard = ({ task, onDelete, currentUserId }) => {
             <Button
               size="small"
               variant="danger"
-              onClick={() => onDelete(task._id)}
+              onClick={() => onDelete(task.id)}
             >
               Delete
             </Button>

@@ -1,7 +1,7 @@
 import Button from '../../components/UI/Button';
 
 const ProjectCard = ({ project, onDelete, currentUserId }) => {
-  const isTeamMember = project.teamMembers.some(member => member._id === currentUserId);
+  const isTeamMember = project.teamMembers.some(member => member.id === currentUserId);
   const isCreator = project.createdBy === currentUserId;
 
   return (
@@ -30,7 +30,7 @@ const ProjectCard = ({ project, onDelete, currentUserId }) => {
       <div className="bg-gray-50 dark:bg-gray-600 px-4 py-3 flex justify-end space-x-2">
         <Button 
           size="small"
-          onClick={() => window.location.href = `/projects/${project._id}`}
+          onClick={() => window.location.href = `/projects/${project.id}`}
         >
           View
         </Button>
@@ -38,7 +38,7 @@ const ProjectCard = ({ project, onDelete, currentUserId }) => {
         {(isTeamMember || isCreator) && (
           <Button 
             size="small"
-            onClick={() => window.location.href = `/projects/${project._id}/edit`}
+            onClick={() => window.location.href = `/projects/${project.id}/edit`}
           >
             Edit
           </Button>
@@ -48,7 +48,7 @@ const ProjectCard = ({ project, onDelete, currentUserId }) => {
           <Button
             size="small"
             variant="danger"
-            onClick={() => onDelete(project._id)}
+            onClick={() => onDelete(project.id)}
           >
             Delete
           </Button>

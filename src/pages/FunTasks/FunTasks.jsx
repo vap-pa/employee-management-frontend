@@ -31,7 +31,7 @@ const FunTasks = () => {
   const handleDelete = async (id) => {
     try {
       await funTaskService.deleteFunTask(id, employee.token);
-      setTasks(tasks.filter(task => task._id !== id));
+      setTasks(tasks.filter(task => task.id !== id));
     } catch (err) {
       setError(err.message || 'Failed to delete task');
     }
@@ -51,7 +51,7 @@ const FunTasks = () => {
       <FunTaskList 
         tasks={tasks} 
         onDelete={handleDelete} 
-        currentUserId={employee._id}
+        currentUserId={employee.id}
       />
     </div>
   );

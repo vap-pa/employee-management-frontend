@@ -66,7 +66,7 @@ const ProjectDetails = () => {
             <h2 className="text-xl font-semibold mb-2">Team Members</h2>
             <div className="space-y-2">
               {project.teamMembers.map(member => (
-                <p key={member._id}>{member.name}</p>
+                <p key={member.id}>{member.name}</p>
               ))}
             </div>
           </div>

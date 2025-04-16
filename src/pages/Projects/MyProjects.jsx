@@ -13,7 +13,7 @@ const MyProjects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const data = await projectService.getEmployeeProjects(employee._id, employee.token);
+        const data = await projectService.getEmployeeProjects(employee.id, employee.token);
         setProjects(data);
         setLoading(false);
       } catch (err) {
@@ -23,7 +23,7 @@ const MyProjects = () => {
     };
 
     fetchProjects();
-  }, [employee._id, employee.token]);
+  }, [employee.id, employee.token]);
 
   if (loading) return <div>Loading...</div>;
 
